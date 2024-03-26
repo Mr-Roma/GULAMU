@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "205896605998",
+    "project_id": "gulamu-d7016",
+    "storage_bucket": "gulamu-d7016.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:205896605998:android:67949d7ff1c592b5b41abf",
+        "android_client_info": {
+          "package_name": "com.example.team_10_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvyHPDD2cjqoc9jNqHlBTAzF9Q1mv4LnQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

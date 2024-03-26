@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:team_10_app/models/onboarding_model/onboarding_model.dart';
 import 'package:team_10_app/onboarding_screen.dart';
-import 'package:team_10_app/pages/login_page.dart';
+import 'package:team_10_app/pages/auth_page.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({Key? key});
@@ -30,11 +30,11 @@ class OnboardingPage extends StatelessWidget {
     var screens = IntroScreens(
       onDone: () => Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (context) => LoginPage(),
+          builder: (context) => AuthPage(),
         ),
       ),
       onSkip: () {},
-      footerBgColor: Colors.blue.withOpacity(.8),
+      footerBgColor: Colors.blue,
       activeDotColor: Colors.white,
       footerRadius: 18.0,
       slides: slides,
