@@ -20,6 +20,7 @@ flutter pub get
 Menjalankan project
 
 ```bash
+Pastikan perangkat emulator anda tersambung ke internet untuk bisa menjalankan aplikasi ini, dan jalankan command :
 flutter run
 ```
 
