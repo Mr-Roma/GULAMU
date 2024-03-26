@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Today extends StatelessWidget {
-  const Today({super.key});
+  final gulaMakanan;
+  final gulaCemilan;
+  final gulaMinuman;
+  final totalGula;
+  const Today(
+      {super.key,
+      this.gulaMakanan,
+      this.gulaCemilan,
+      this.gulaMinuman,
+      this.totalGula});
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +74,7 @@ class Today extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            "30 gr",
+                            totalGula.toString(),
                             style: GoogleFonts.poppins(
                               fontSize: 12,
                               color: const Color(0xFF2E69FF),
@@ -130,7 +139,7 @@ class Today extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "18 gr",
+                                gulaMakanan.toString(),
                                 style: GoogleFonts.poppins(
                                   fontSize: 22,
                                   color: Colors.white,
@@ -198,7 +207,7 @@ class Today extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "18 gr",
+                                    gulaMinuman.toString(),
                                     style: GoogleFonts.poppins(
                                       fontSize: 20,
                                       color: Colors.white,
@@ -253,7 +262,7 @@ class Today extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "18 gr",
+                                    gulaCemilan.toString(),
                                     style: GoogleFonts.poppins(
                                       fontSize: 20,
                                       color: Colors.white,

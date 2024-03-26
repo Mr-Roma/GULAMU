@@ -6,12 +6,15 @@ class GraphicPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int total = 0;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              GraphCard(),
+              GraphCard(
+                totalGula: total,
+              ),
               Container(
                 height: 350,
                 decoration: BoxDecoration(

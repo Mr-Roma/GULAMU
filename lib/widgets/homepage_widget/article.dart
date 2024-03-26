@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:team_10_app/article_view.dart';
 import 'package:team_10_app/widgets/homepage_widget/article_card.dart';
@@ -43,11 +43,19 @@ class Article extends StatelessWidget {
                 const SizedBox(
                   width: 15,
                 ),
-                const ArticleCard(
-                  title: "Mendekati Gula dengan Senyum",
-                  text:
-                      "Terkadang, gula dianggap sebagai musuh dalam upaya kita menjaga kesehatan. Namun, apakah kita benar-benar harus melihat gula sebagai ancaman yang harus dihindari sepenuhnya? Mengambil pendekatan yang lebih positif terhadap gula dapat membantu kita memahami peran pentingnya dalam memberikan energi dan kenikmatan dalam makanan kita sehari-hari.",
-                  url: "assets/icons/artikel2.png",
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => ArticledetailView2())));
+                  },
+                  child: const ArticleCard(
+                    title: "Mendekati Gula dengan Senyum",
+                    text:
+                        "Terkadang, gula dianggap sebagai musuh dalam upaya kita menjaga kesehatan. Namun, apakah kita benar-benar harus melihat gula sebagai ancaman yang harus dihindari sepenuhnya? Mengambil pendekatan yang lebih positif terhadap gula dapat membantu kita memahami peran pentingnya dalam memberikan energi dan kenikmatan dalam makanan kita sehari-hari.",
+                    url: "assets/icons/artikel2.png",
+                  ),
                 ),
                 SizedBox(
                   width: 15,

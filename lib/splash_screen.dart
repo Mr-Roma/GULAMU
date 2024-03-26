@@ -86,19 +86,11 @@ class _SplashScreenState extends State<SplashScreen> {
                               delay: Duration(seconds: 2))),
                   Animate(
                     child: Padding(
-                      padding: EdgeInsets.only(
-                        left: 110,
-                        top: 120,
-                      ),
-                      child: Text(
-                        'G U L A M U',
-                        style: TextStyle(
-                            color: Colors.blue,
-                            fontFamily: 'Exo',
-                            fontSize: 36,
-                            fontWeight: FontWeight.w800),
-                      ),
-                    ),
+                        padding: EdgeInsets.only(
+                          left: 5,
+                          top: 100,
+                        ),
+                        child: Image.asset('assets/gulamu_logo.png')),
                   ).fadeIn(duration: Duration(seconds: 2)),
                 ],
               ),

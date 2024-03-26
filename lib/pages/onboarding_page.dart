@@ -25,8 +25,6 @@ class OnboardingPage extends StatelessWidget {
       ),
     ];
 
-    var lastSlide = slides.last;
-
     var screens = IntroScreens(
       onDone: () => Navigator.of(context).push(
         MaterialPageRoute(

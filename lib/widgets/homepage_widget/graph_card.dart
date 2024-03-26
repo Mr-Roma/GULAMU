@@ -3,7 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:team_10_app/widgets/homepage_widget/line_chart.dart';
 
 class GraphCard extends StatelessWidget {
-  const GraphCard({super.key});
+  final totalGula;
+  const GraphCard({super.key, required this.totalGula});
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +68,7 @@ class GraphCard extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "32 gr",
+                        totalGula.toString(),
                         style: GoogleFonts.poppins(
                           fontSize: 20,
                           fontWeight: FontWeight.w600,
@@ -92,7 +93,7 @@ class GraphCard extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "12 gr",
+                        "50 gr",
                         style: GoogleFonts.poppins(
                           fontSize: 20,
                           fontWeight: FontWeight.w600,
@@ -117,7 +118,7 @@ class GraphCard extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "32gr",
+                        totalGula.toString(),
                         style: GoogleFonts.poppins(
                           fontSize: 20,
                           fontWeight: FontWeight.w600,
