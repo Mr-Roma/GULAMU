@@ -72,7 +72,8 @@ Password : icha123
 
 #PROFILE PAGE
 
-![Screenshot 2024-03-27 003710](https://github.com/Mr-Roma/Motionhack10/assets/114415380/d8643733-ed18-4044-ac1e-5ce84b624bef)
+![Screenshot 2024-03-27 003719](https://github.com/Mr-Roma/Motionhack10/assets/114415380/a25e4c92-2f9e-4a9b-9ef2-b6610718eb60)
+
 
 
 
