@@ -26,8 +26,8 @@ flutter run
 Akun demo
 
 ```bash
-Email : terserahbgaziz@gmail.com
-Password : apalah
+Email : icha@gmail.com
+Password : icha123
 ```
 
 ## Screenshots
