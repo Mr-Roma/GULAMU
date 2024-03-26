@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,9 +22,19 @@ class _RegisterPageState extends State<RegisterPage> {
 
   final namaAkhir = TextEditingController();
 
-  void user() {}
+  void createUser() {
+    final newUser = {
+      'namaAwal': namaAwal.text,
+      'namaAkhir': namaAkhir.text,
+      'timestamp': DateTime.now().microsecondsSinceEpoch
+    };
+    FirebaseFirestore.instance.collection('username').add(newUser);
+    namaAwal.text = "";
+    namaAkhir.text = "";
+  }
 
   void register() async {
+    if (!mounted) return;
     showDialog(
       context: context,
       builder: (context) {
@@ -36,6 +47,8 @@ class _RegisterPageState extends State<RegisterPage> {
       if (passwordController.text == passwordController.text) {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
             email: emailController.text, password: passwordController.text);
+        createUser();
+        if (!mounted) return;
         Navigator.pop(context); // Close loading dialog
         // Optionally, you can navigate to another screen upon successful registration
       } else {
@@ -43,6 +56,7 @@ class _RegisterPageState extends State<RegisterPage> {
         showErrorMessage('password-mismatch');
       }
     } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
       Navigator.pop(context); // Close loading dialog
       // Display error message
       showErrorMessage(e.code);

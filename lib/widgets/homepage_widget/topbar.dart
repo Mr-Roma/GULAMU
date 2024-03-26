@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -22,12 +23,37 @@ class TopBar extends StatelessWidget {
                 const SizedBox(
                   width: 12,
                 ),
-                Text(
-                  "Halo, Fatir",
-                  style: GoogleFonts.poppins(
-                    fontSize: 15,
-                    color: Colors.black,
-                  ),
+                StreamBuilder(
+                  stream: FirebaseFirestore.instance
+                      .collection('username')
+                      .orderBy('timestamp', descending: true)
+                      .snapshots(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Text('Mohon Tunggu');
+                    }
+                    if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+                      return Text('Tidak ada Data');
+                    }
+
+                    // Extracting the first document to get the latest username
+                    var latestDocument = snapshot.data!.docs.first;
+                    var username = latestDocument.data()['namaAwal'];
+
+                    // Returning only the username in a Text widget
+                    return Row(
+                      children: [
+                        Text(
+                          'Halo, $username!', // Displaying the username
+                          style: GoogleFonts.poppins(
+                            fontSize: 15,
+                            color: Colors.black,
+                          ),
+                        ),
+                        // Add more widgets if needed below
+                      ],
+                    );
+                  },
                 ),
               ],
             ),
