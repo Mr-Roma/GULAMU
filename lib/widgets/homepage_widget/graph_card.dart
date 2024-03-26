@@ -60,7 +60,7 @@ class GraphCard extends StatelessWidget {
                   Column(
                     children: [
                       Text(
-                        "Minggu ini",
+                        "Hari ini",
                         style: GoogleFonts.poppins(
                           fontSize: 12,
                           color: const Color(0xFF999999),
@@ -85,7 +85,7 @@ class GraphCard extends StatelessWidget {
                   Column(
                     children: [
                       Text(
-                        "Maks. Gula",
+                        "Batas harian",
                         style: GoogleFonts.poppins(
                           fontSize: 12,
                           color: const Color(0xFF999999),

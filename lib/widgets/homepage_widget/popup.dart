@@ -1,14 +1,30 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PopUp extends StatefulWidget {
-  const PopUp({super.key});
+  PopUp({super.key});
 
   @override
   State<PopUp> createState() => _PopUpState();
 }
 
 class _PopUpState extends State<PopUp> {
+  final inputMakanan = TextEditingController();
+  final inputGula = TextEditingController();
+  String inputJenis = "";
+
+  void handleCreate() {
+    final newData = {
+      'jumlahGula': int.parse(inputGula.text.trim()) * i,
+      'namaMakanan': inputMakanan.text,
+      'tipe': inputJenis,
+    };
+    FirebaseFirestore.instance.collection('dataMakanan').add(newData);
+    inputMakanan.text = '';
+    inputGula.text = '';
+  }
+
   int i = 0;
   Color currentColor1 = Colors.grey,
       currentColor2 = Colors.grey,
@@ -29,6 +45,7 @@ class _PopUpState extends State<PopUp> {
                   currentColor1 = const Color(0xFF0E90F9);
                   currentColor2 = Colors.grey;
                   currentColor3 = Colors.grey;
+                  inputJenis = "Makanan";
                 });
               },
               child: Container(
@@ -60,6 +77,7 @@ class _PopUpState extends State<PopUp> {
                   currentColor1 = Colors.grey;
                   currentColor2 = const Color(0xFF0E90F9);
                   currentColor3 = Colors.grey;
+                  inputJenis = "Snack";
                 });
               },
               child: Container(
@@ -91,6 +109,7 @@ class _PopUpState extends State<PopUp> {
                   currentColor1 = Colors.grey;
                   currentColor2 = Colors.grey;
                   currentColor3 = const Color(0xFF0E90F9);
+                  inputJenis = "Minuman";
                 });
               },
               child: Container(
@@ -134,9 +153,10 @@ class _PopUpState extends State<PopUp> {
         SizedBox(
           height: 35,
           child: TextField(
+            controller: inputMakanan,
             style: GoogleFonts.poppins(
               fontSize: 12,
-              color: currentColor3,
+              color: Colors.grey,
             ),
             decoration: InputDecoration(
               isDense: true,
@@ -164,9 +184,10 @@ class _PopUpState extends State<PopUp> {
         SizedBox(
           height: 35,
           child: TextField(
+            controller: inputGula,
             style: GoogleFonts.poppins(
               fontSize: 12,
-              color: currentColor3,
+              color: Colors.grey,
             ),
             decoration: InputDecoration(
               isDense: true,
@@ -233,7 +254,9 @@ class _PopUpState extends State<PopUp> {
           height: 28,
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            handleCreate();
+          },
           child: Container(
             height: 30,
             width: 230,

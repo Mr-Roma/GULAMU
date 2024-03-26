@@ -13,13 +13,14 @@ import 'package:team_10_app/widgets/homepage_widget/topbar.dart';
 
 import '../controllers/home_controller.dart';
 
-class HomePage extends GetView<HomeController> {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  void signUserOut() {
-    FirebaseAuth.instance.signOut();
-  }
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
 
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,9 +30,6 @@ class HomePage extends GetView<HomeController> {
           SizedBox(
             height: 10,
           ),
-          Row(children: [
-            IconButton(onPressed: signUserOut, icon: Icon(Icons.logout))
-          ]),
           TopBar(),
           GraphCard(),
           SizedBox(
@@ -44,67 +42,6 @@ class HomePage extends GetView<HomeController> {
           Article(),
           SizedBox(
             height: 15,
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showDialog(
-            context: context,
-            builder: (context) {
-              return AlertDialog(
-                scrollable: true,
-                backgroundColor: Colors.white,
-                title: Text(
-                  "Menyantap apa kali ini?",
-                  style: GoogleFonts.poppins(
-                    fontSize: 18,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                content: PopUp(),
-              );
-            },
-          );
-        },
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(50),
-        ),
-        child: Image.asset(
-          'assets/icons/addbutton.png',
-          scale: 1.5,
-        ),
-      ),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterDocked,
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: const Color(0xFF00A3FF),
-        items: const [
-          BottomNavigationBarItem(
-            icon: ImageIcon(
-              AssetImage('assets/icons/home.png'),
-            ),
-            label: 'Beranda',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(
-              AssetImage('assets/icons/grafik.png'),
-            ),
-            label: 'Grafik',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(
-              AssetImage('assets/icons/home.png'),
-            ),
-            label: 'Histori',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(
-              AssetImage('assets/icons/profile.png'),
-            ),
-            label: 'Profil',
           ),
         ],
       ),

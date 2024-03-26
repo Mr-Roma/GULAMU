@@ -51,7 +51,9 @@ class IntroScreen extends StatelessWidget {
                         width: double.infinity,
                         height: screenSize.height * .5,
                       ),
-                    ).slide(begin: Offset(1, 0), duration: Duration(seconds: 1))
+                    ).slide(
+                      begin: Offset(1, 0),
+                      duration: Duration(milliseconds: 500))
                   : this.header ??
                       Container(
                         child: Animate(
