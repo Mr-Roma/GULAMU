@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class IntroScreen extends StatelessWidget {
   final String? title;
@@ -43,21 +44,25 @@ class IntroScreen extends StatelessWidget {
             ),
             child: Center(
               child: imageAsset != null
-                  ? Image.asset(
-                      imageAsset!,
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                      height: screenSize.height * .5,
-                    )
+                  ? Animate(
+                      child: Image.asset(
+                        imageAsset!,
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        height: screenSize.height * .5,
+                      ),
+                    ).slide(begin: Offset(1, 0), duration: Duration(seconds: 1))
                   : this.header ??
                       Container(
-                        child: Text(
-                          "${this._pageIndex ?? 1}",
-                          style: TextStyle(
-                            fontSize: 300,
-                            fontWeight: FontWeight.w900,
+                        child: Animate(
+                          child: Text(
+                            "${this._pageIndex ?? 1}",
+                            style: TextStyle(
+                              fontSize: 300,
+                              fontWeight: FontWeight.w900,
+                            ),
                           ),
-                        ),
+                        ).fadeIn(duration: Duration(seconds: 1)),
                       ),
             ),
           ),

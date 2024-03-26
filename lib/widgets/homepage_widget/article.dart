@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:team_10_app/article_view.dart';
 import 'package:team_10_app/widgets/homepage_widget/article_card.dart';
 
 class Article extends StatelessWidget {
@@ -24,20 +26,32 @@ class Article extends StatelessWidget {
             width: double.infinity,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: const [
-                ArticleCard(),
+              children: [
+                GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => ArticledetailView())));
+                    },
+                    child: const ArticleCard(
+                      title: "Gula: Sahabat atau Musuh?",
+                      text:
+                          "Apakah gula benar-benar musuh kesehatan kita, ataukah ia tetap menjadi sahabat dalam kehidupan sehari-hari? Pertanyaan ini sering kali membingungkan, tetapi jawabannya sebenarnya tidaklah hitam atau putih.",
+                      url: "assets/icons/artikel1.png",
+                    )),
+                const SizedBox(
+                  width: 15,
+                ),
+                const ArticleCard(
+                  title: "Mendekati Gula dengan Senyum",
+                  text:
+                      "Terkadang, gula dianggap sebagai musuh dalam upaya kita menjaga kesehatan. Namun, apakah kita benar-benar harus melihat gula sebagai ancaman yang harus dihindari sepenuhnya? Mengambil pendekatan yang lebih positif terhadap gula dapat membantu kita memahami peran pentingnya dalam memberikan energi dan kenikmatan dalam makanan kita sehari-hari.",
+                  url: "assets/icons/artikel2.png",
+                ),
                 SizedBox(
                   width: 15,
                 ),
-                ArticleCard(),
-                SizedBox(
-                  width: 15,
-                ),
-                ArticleCard(),
-                SizedBox(
-                  width: 15,
-                ),
-                ArticleCard(),
               ],
             ),
           ),

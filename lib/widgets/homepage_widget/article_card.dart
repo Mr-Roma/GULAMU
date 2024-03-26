@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ArticleCard extends StatelessWidget {
-  const ArticleCard({super.key});
+  final String title;
+  final String text;
+  final String url;
+  const ArticleCard(
+      {super.key, required this.title, required this.text, required this.url});
 
   @override
   Widget build(BuildContext context) {
@@ -20,24 +24,26 @@ class ArticleCard extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
-              child: Image.asset('assets/icons/artikel1.png'),
+              child: Image.asset(url),
             ),
             const SizedBox(
               height: 16,
             ),
             Text(
-              "Gula: Sahabat atau Musuh",
+              title,
               style: GoogleFonts.poppins(
                 fontSize: 16,
                 color: Colors.black,
                 fontWeight: FontWeight.w600,
               ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
             const SizedBox(
               height: 16,
             ),
             Text(
-              "Apakah gula benar-benar musuh kesehatan kita, ataukah ia tetap menjadi sahabat dalam kehidupan sehari-hari? Pertanyaan ini sering kali membingungkan, tetapi jawabannya sebenarnya tidaklah hitam atau putih.",
+              text,
               style: GoogleFonts.poppins(
                 fontSize: 12,
                 color: Colors.black,

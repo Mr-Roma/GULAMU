@@ -134,7 +134,10 @@ class _PopUpState extends State<PopUp> {
         SizedBox(
           height: 35,
           child: TextField(
-            style: const TextStyle(fontSize: 11),
+            style: GoogleFonts.poppins(
+              fontSize: 12,
+              color: currentColor3,
+            ),
             decoration: InputDecoration(
               isDense: true,
               contentPadding: EdgeInsets.all(8),
@@ -161,7 +164,10 @@ class _PopUpState extends State<PopUp> {
         SizedBox(
           height: 35,
           child: TextField(
-            style: const TextStyle(fontSize: 11),
+            style: GoogleFonts.poppins(
+              fontSize: 12,
+              color: currentColor3,
+            ),
             decoration: InputDecoration(
               isDense: true,
               contentPadding: EdgeInsets.all(8),
@@ -192,7 +198,8 @@ class _PopUpState extends State<PopUp> {
               },
               child: const Icon(
                 Icons.remove_circle_outline_rounded,
-                size: 14,
+                size: 18,
+                color: Colors.red,
               ),
             ),
             const SizedBox(
@@ -201,7 +208,7 @@ class _PopUpState extends State<PopUp> {
             Text(
               i.toString(),
               style: GoogleFonts.poppins(
-                fontSize: 11,
+                fontSize: 15,
                 color: Colors.black,
               ),
             ),
@@ -216,7 +223,8 @@ class _PopUpState extends State<PopUp> {
               },
               child: const Icon(
                 Icons.add_circle_outline,
-                size: 14,
+                size: 18,
+                color: Colors.blue,
               ),
             )
           ],
@@ -227,7 +235,7 @@ class _PopUpState extends State<PopUp> {
         GestureDetector(
           onTap: () {},
           child: Container(
-            height: 25,
+            height: 30,
             width: 230,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
@@ -247,26 +255,6 @@ class _PopUpState extends State<PopUp> {
         ),
         SizedBox(
           height: 10,
-        ),
-        GestureDetector(
-          onTap: () {},
-          child: Container(
-            height: 25,
-            width: 230,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Center(
-              child: Text(
-                "Batal",
-                style: GoogleFonts.poppins(
-                  fontSize: 12,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
-          ),
         ),
       ],
     ));
