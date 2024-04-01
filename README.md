@@ -20,6 +20,7 @@ flutter pub get
 Menjalankan project
 
 ```bash
+Pastikan perangkat emulator anda tersambung ke internet untuk bisa menjalankan aplikasi ini, dan jalankan command :
 flutter run
 ```
 
@@ -32,22 +33,16 @@ Password : icha123
 
 ## Screenshots
 
-![Splash Screen](./screenshot/splash_screen.jpeg)
-![Splash Screen2](./screenshot/splash_screen2.jpeg)
-![Welcome Before Login](./screenshot/welcome_before_login.jpeg)
+![MockupGulamu(Github)](https://github.com/Mr-Roma/Motionhack10/assets/114415380/9b0b08ea-54b0-4750-9f71-cf810b935722)
 
-![Register](./screenshot/register.jpeg)
 
-![Login](./screenshot/login.jpeg)
 
-![Login Success](./screenshot/login_success.jpeg)
-![Welcome](./screenshot/welcome.jpeg)
-![List Books](./screenshot/list_books.jpeg)
-![Upload Books](./screenshot/upload_books.jpeg)
-![Detail Books](./screenshot/detail_books.jpeg)
-![Edit Books](./screenshot/edit_data.jpeg)
-![Delete Books](./screenshot/delete_books.jpeg)
-![Logout](./screenshot/logout.jpeg)
+
+
+
+
+
+
 
 
 
