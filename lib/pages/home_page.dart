@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:team_10_app/widgets/homepage_widget/article.dart';
 import 'package:team_10_app/widgets/homepage_widget/graph_card.dart';
 
@@ -28,7 +29,7 @@ class _HomePageState extends State<HomePage> {
           SizedBox(
             height: 10,
           ),
-          TopBar(),
+          Animate(child: TopBar()).fadeIn(duration: Duration(seconds: 1)),
           StreamBuilder(
             stream: FirebaseFirestore.instance
                 .collection('dataMakanan')
@@ -58,18 +59,22 @@ class _HomePageState extends State<HomePage> {
               // Returning only the username in a Text widget
               return Column(
                 children: [
-                  GraphCard(
-                    totalGula: total,
-                  ),
+                  Animate(
+                    child: GraphCard(
+                      totalGula: total,
+                    ),
+                  ).slide(begin: Offset(0, 1), duration: Duration(seconds: 1)),
                   SizedBox(
                     height: 15,
                   ),
-                  Today(
-                    gulaMakanan: totalGulaMakanan,
-                    gulaMinuman: totalGulaMinuman,
-                    gulaCemilan: totalGulaCemilan,
-                    totalGula: total,
-                  ),
+                  Animate(
+                    child: Today(
+                      gulaMakanan: totalGulaMakanan,
+                      gulaMinuman: totalGulaMinuman,
+                      gulaCemilan: totalGulaCemilan,
+                      totalGula: total,
+                    ),
+                  ).slide(begin: Offset(0, -1), duration: Duration(seconds: 1)),
                 ],
               );
             },

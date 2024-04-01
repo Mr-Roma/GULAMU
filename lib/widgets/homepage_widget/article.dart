@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,34 +28,40 @@ class Article extends StatelessWidget {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                GestureDetector(
+                Hero(
+                  tag: 'article1',
+                  child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) => ArticledetailView())));
+                      },
+                      child: const ArticleCard(
+                        title: "Gula: Sahabat atau Musuh?",
+                        text:
+                            "Apakah gula benar-benar musuh kesehatan kita, ataukah ia tetap menjadi sahabat dalam kehidupan sehari-hari? Pertanyaan ini sering kali membingungkan, tetapi jawabannya sebenarnya tidaklah hitam atau putih.",
+                        url: "assets/icons/artikel1.png",
+                      )),
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
+                Hero(
+                  tag: 'article2',
+                  child: GestureDetector(
                     onTap: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: ((context) => ArticledetailView())));
+                              builder: ((context) => ArticledetailView2())));
                     },
                     child: const ArticleCard(
-                      title: "Gula: Sahabat atau Musuh?",
+                      title: "Mendekati Gula dengan Senyum",
                       text:
-                          "Apakah gula benar-benar musuh kesehatan kita, ataukah ia tetap menjadi sahabat dalam kehidupan sehari-hari? Pertanyaan ini sering kali membingungkan, tetapi jawabannya sebenarnya tidaklah hitam atau putih.",
-                      url: "assets/icons/artikel1.png",
-                    )),
-                const SizedBox(
-                  width: 15,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: ((context) => ArticledetailView2())));
-                  },
-                  child: const ArticleCard(
-                    title: "Mendekati Gula dengan Senyum",
-                    text:
-                        "Terkadang, gula dianggap sebagai musuh dalam upaya kita menjaga kesehatan. Namun, apakah kita benar-benar harus melihat gula sebagai ancaman yang harus dihindari sepenuhnya? Mengambil pendekatan yang lebih positif terhadap gula dapat membantu kita memahami peran pentingnya dalam memberikan energi dan kenikmatan dalam makanan kita sehari-hari.",
-                    url: "assets/icons/artikel2.png",
+                          "Terkadang, gula dianggap sebagai musuh dalam upaya kita menjaga kesehatan. Namun, apakah kita benar-benar harus melihat gula sebagai ancaman yang harus dihindari sepenuhnya? Mengambil pendekatan yang lebih positif terhadap gula dapat membantu kita memahami peran pentingnya dalam memberikan energi dan kenikmatan dalam makanan kita sehari-hari.",
+                      url: "assets/icons/artikel2.png",
+                    ),
                   ),
                 ),
                 SizedBox(

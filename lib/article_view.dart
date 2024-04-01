@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -57,14 +59,17 @@ class ArticledetailView extends StatelessWidget {
                     const SizedBox(
                       height: 21,
                     ),
-                    Container(
-                      height: 178,
-                      width: 338,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/icons/artikel1.png',
-                          fit: BoxFit.fill,
+                    Hero(
+                      tag: 'article1',
+                      child: Container(
+                        height: 178,
+                        width: 338,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            'assets/icons/artikel1.png',
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
                     ),
@@ -143,14 +148,17 @@ class ArticledetailView2 extends StatelessWidget {
                     const SizedBox(
                       height: 21,
                     ),
-                    Container(
-                      height: 178,
-                      width: 338,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/icons/artikel2.png',
-                          fit: BoxFit.fill,
+                    Hero(
+                      tag: 'article2',
+                      child: Container(
+                        height: 178,
+                        width: 338,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            'assets/icons/artikel2.png',
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
                     ),

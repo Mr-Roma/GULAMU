@@ -86,11 +86,13 @@ class _SplashScreenState extends State<SplashScreen> {
                               delay: Duration(seconds: 2))),
                   Animate(
                     child: Padding(
-                        padding: EdgeInsets.only(
-                          left: 5,
-                          top: 100,
-                        ),
-                        child: Image.asset('assets/gulamu_logo.png')),
+                      padding: const EdgeInsets.only(left: 40, top: 30),
+                      child: Container(
+                        width: 300,
+                        height: 250,
+                        child: Image.asset('assets/gulamu_logo.png'),
+                      ),
+                    ),
                   ).fadeIn(duration: Duration(seconds: 2)),
                 ],
               ),

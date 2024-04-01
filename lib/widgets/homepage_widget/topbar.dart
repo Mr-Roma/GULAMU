@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:team_10_app/pages/profile_page.dart';
 
 class TopBar extends StatelessWidget {
   const TopBar({super.key});
@@ -17,8 +19,19 @@ class TopBar extends StatelessWidget {
           children: [
             Row(
               children: [
-                const CircleAvatar(
-                  maxRadius: 16,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ProfilePage(), // Replace ProfilePage with your profile page widget
+                      ),
+                    );
+                  },
+                  child: CircleAvatar(
+                    maxRadius: 16,
+                  ),
                 ),
                 const SizedBox(
                   width: 12,

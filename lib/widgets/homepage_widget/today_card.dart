@@ -15,6 +15,8 @@ class Today extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String status = totalGula >= 50 ? "Tidak Normal" : "Normal";
+    Color statusColor = totalGula >= 50 ? Colors.red : Colors.green;
     return Container(
         height: 496,
         width: double.infinity,
@@ -88,7 +90,7 @@ class Today extends StatelessWidget {
                       ),
                       Container(
                         height: 26,
-                        width: 96,
+                        width: 120,
                         decoration: BoxDecoration(
                           color: Color(0x220AB845),
                           borderRadius: BorderRadius.circular(20),
@@ -99,16 +101,16 @@ class Today extends StatelessWidget {
                             children: [
                               Image.asset(
                                 'assets/icons/pulse.png',
-                                color: const Color(0xFF2CF47C),
+                                color: statusColor,
                               ),
                               const SizedBox(
-                                width: 10,
+                                width: 5,
                               ),
                               Text(
-                                "Normal",
+                                status,
                                 style: GoogleFonts.poppins(
                                   fontSize: 12,
-                                  color: const Color(0xFF0AB845),
+                                  color: statusColor,
                                 ),
                               ),
                             ],

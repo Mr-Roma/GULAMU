@@ -1,3 +1,5 @@
+import 'package:device_preview/device_preview.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:team_10_app/constants/route_constant.dart';
@@ -12,7 +14,11 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MainApp());
+  runApp(
+    DevicePreview(
+      builder: (context) => MainApp(), // Wrap your app
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {
@@ -21,6 +27,9 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      useInheritedMediaQuery: true,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       initialRoute: RouteConstant.splash,
       routes: {

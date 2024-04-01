@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class RiwayatKonsumsiPage extends StatelessWidget {
   const RiwayatKonsumsiPage({Key? key}) : super(key: key);
@@ -32,103 +33,116 @@ class RiwayatKonsumsiPage extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Container(
-                          child: Icon(Icons.arrow_back_ios, size: 15),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(12),
+                        Animate(
+                          child: Container(
+                            child: Animate(
+                                    child: Icon(Icons.arrow_back_ios, size: 15))
+                                .slide(begin: Offset(1, 0)),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            width: 40,
+                            height: 40,
                           ),
-                          width: 40,
-                          height: 40,
-                        ),
+                        ).slide(
+                            begin: Offset(1, 0),
+                            duration: Duration(seconds: 1)),
                         SizedBox(
                           width: 70,
                         ),
-                        Text(
-                          "Riwayat Konsumsi",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w900,
-                              fontSize: 18),
-                        ),
+                        Animate(
+                          child: Text(
+                            "Riwayat Konsumsi",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w900,
+                                fontSize: 18),
+                          ),
+                        ).slide(begin: Offset(0, 1)),
                       ],
                     ),
                     SizedBox(
                       height: 20,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '26 Maret, 2024',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w900,
-                              fontSize: 14),
-                        ),
-                        Icon(
-                          Icons.calendar_today,
-                          color: Colors.white,
-                        )
-                      ],
-                    ),
+                    Animate(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            '26 Maret, 2024',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w900,
+                                fontSize: 14),
+                          ),
+                          Icon(
+                            Icons.calendar_today,
+                            color: Colors.white,
+                          )
+                        ],
+                      ),
+                    ).fadeIn(duration: Duration(seconds: 1)),
                     SizedBox(
                       height: 10,
                     ),
                     Container(
                       height: 60,
-                      child: DateList(),
+                      child: Animate(child: DateList())
+                          .slideY(duration: Duration(seconds: 1)),
                     ),
                   ],
                 ),
               ),
-              Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20))),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 20,
-                      ),
-                      StreamBuilder(
-                        stream: FirebaseFirestore.instance
-                            .collection('dataMakanan')
-                            .snapshots(),
-                        builder: (context, snapshot) {
-                          if (snapshot.connectionState ==
-                              ConnectionState.waiting) {
-                            return Text('Mohon Tunggu');
-                          }
-                          if (!snapshot.hasData ||
-                              snapshot.data!.docs.isEmpty) {
-                            return Text('Tidak ada Data');
-                          }
+              Animate(
+                child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20))),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 20,
+                        ),
+                        StreamBuilder(
+                          stream: FirebaseFirestore.instance
+                              .collection('dataMakanan')
+                              .snapshots(),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              return Text('Mohon Tunggu');
+                            }
+                            if (!snapshot.hasData ||
+                                snapshot.data!.docs.isEmpty) {
+                              return Text('Tidak ada Data');
+                            }
 
-                          // Returning only the username in a Text widget
-                          return Container(
-                            width: double.infinity,
-                            height: 524.35,
-                            child: ListView(
-                              children: [
-                                for (var docu in snapshot.data!.docs)
-                                  CardRiwayat(
-                                    id: docu.id,
-                                    namaMakanan: docu.data()['namaMakanan'],
-                                    jumlahGula: docu.data()['jumlahGula'],
-                                    tipe: docu.data()['tipe'],
-                                    onDelete: handleDeleteTodo,
-                                  )
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  ))
+                            // Returning only the username in a Text widget
+                            return Container(
+                              width: double.infinity,
+                              height: 524.35,
+                              child: ListView(
+                                children: [
+                                  for (var docu in snapshot.data!.docs)
+                                    CardRiwayat(
+                                      id: docu.id,
+                                      namaMakanan: docu.data()['namaMakanan'],
+                                      jumlahGula: docu.data()['jumlahGula'],
+                                      tipe: docu.data()['tipe'],
+                                      onDelete: handleDeleteTodo,
+                                    )
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    )),
+              ).slide(begin: Offset(0, 1), duration: Duration(seconds: 1))
             ],
           ),
         ),
@@ -257,16 +271,17 @@ class CardRiwayat extends StatelessWidget {
                     Text(
                       namaMakanan,
                       style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black,
-                      ),
+                          fontSize: 14,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w800),
                     ),
                     Text(
                       "Gula: $jumlahGula gram",
                       style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.black,
-                      ),
+                          fontSize: 12,
+                          fontFamily: 'Open',
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400),
                     ),
                   ],
                 )
