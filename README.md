@@ -1,4 +1,3 @@
-(Nyatuin filenya manual ga make push)
 # Gulamu App
 
 GulaMu adalah sebuah aplikasi yang berbasis mobile yang dapat mentrack pemasukan gula yang masuk kedalam tubuhmu.
